@@ -15,6 +15,10 @@
                     // Access has not been granted
                         navigator.mediaDevices.getUserMedia({ audio: false, video: true });
                         console.log("here");
+                    } else if (result.state == 'denied') {
+                    // Access has not been granted
+                        navigator.mediaDevices.getUserMedia({ audio: false, video: true });
+                        console.log("here");
                     }
                 });
                 var caption = document.getElementById("caption").value;
