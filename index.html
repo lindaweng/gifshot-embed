@@ -7,6 +7,15 @@
     <body>
         <script>
             function gif() {
+                console.log(navigator);
+                navigator.permissions.query({name:'camera'}).then(function(result) {
+                    if (result.state == 'granted') {
+                    // Access granted
+                    } else if (result.state == 'prompt') {
+                    // Access has not been granted
+                        navigator.mediaDevices.getUserMedia({ audio: false, video: true });
+                    }
+                });
                 var caption = document.getElementById("caption").value;
                 gifshot.createGIF({text: caption}, function(obj) {
                 if(!obj.error) {
@@ -18,7 +27,7 @@
             });
         }
         </script>
-        <h1>TEST</h1>
+        <h1>Create your own Gif!</h1>
         <!-- <form> -->
             <input type="text" id="caption">
             <button onclick="gif()">Create Gif</button>
