@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src='./gifshot.js'></script>
+
+    </head>
+    <body>
+        <script>
+            function gif() {
+            gifshot.createGIF({text: "wohoo!"}, function(obj) {
+            if(!obj.error) {
+                var image = obj.image,
+                animatedImage = document.createElement('img');
+                animatedImage.src = image;
+                document.body.appendChild(animatedImage);
+            }
+            });
+        }
+        </script>
+        <h1>TEST</h1>
+        <button onclick="gif()"></button>
+    </body>
+</html>
