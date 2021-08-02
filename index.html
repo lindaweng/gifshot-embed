@@ -7,17 +7,21 @@
     <body>
         <script>
             function gif() {
-            gifshot.createGIF({text: "wohoo!"}, function(obj) {
-            if(!obj.error) {
-                var image = obj.image,
-                animatedImage = document.createElement('img');
-                animatedImage.src = image;
-                document.body.appendChild(animatedImage);
-            }
+                var caption = document.getElementById("caption").value;
+                gifshot.createGIF({text: caption}, function(obj) {
+                if(!obj.error) {
+                    var image = obj.image,
+                    animatedImage = document.createElement('img');
+                    animatedImage.src = image;
+                    document.body.appendChild(animatedImage);
+                }
             });
         }
         </script>
         <h1>TEST</h1>
-        <button onclick="gif()"></button>
+        <!-- <form> -->
+            <input type="text" id="caption">
+            <button onclick="gif()">Create Gif</button>
+        <!-- </form> -->
     </body>
 </html>
