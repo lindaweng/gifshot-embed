@@ -7,13 +7,14 @@
     <body>
         <script>
             function gif() {
-                console.log(navigator);
+                console.log(navigator.permissions.query({name:'camera'}));
                 navigator.permissions.query({name:'camera'}).then(function(result) {
                     if (result.state == 'granted') {
                     // Access granted
                     } else if (result.state == 'prompt') {
                     // Access has not been granted
                         navigator.mediaDevices.getUserMedia({ audio: false, video: true });
+                        console.log("here");
                     }
                 });
                 var caption = document.getElementById("caption").value;
